@@ -15,7 +15,7 @@ This is the beta version of our mobile game "Falafel Frenzy". You slice flying f
 ![Gameplay screenshot 3](screenshots/gameplay-6.png)
 
 How to install
-1. Download the latest APK from the [Releases] section of this repository.
+1. Download the latest APK here [![Download Falafel Frenzy](https://img.shields.io/badge/Download-v1.0.0-blue?style=for-the-badge&logo=github)](https://github.com/neonotterlabs-2000/falafel-frenzy/releases/tag/v1.0.0)
 2. Open the downloaded APK on your Android device.
 3. If prompted, allow installation from this source in your Android settings.
 4. Follow the on-screen instructions to install the game.
