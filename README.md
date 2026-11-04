@@ -1,5 +1,18 @@
 # falafel-frenzy
-This is the beta version of our mobile game "Falafel Frenzy". You slice flying falafel balls and dodge the white sauce bottles. 
+This is the beta version of our mobile game "Falafel Frenzy". You slice flying falafel balls and dodge the white sauce bottles. Play to collect coins and buy new ingredients like tomato, halluomi, and pickle. 
+
+## Screenshots
+![Gameplay screenshot 1](screenshots/gameplay-1.png)
+
+![Gameplay screenshot 2](screenshots/gameplay-2.png)
+
+![Gameplay screenshot 3](screenshots/gameplay-3.png)
+
+![Gameplay screenshot 3](screenshots/gameplay-4.png)
+
+![Gameplay screenshot 3](screenshots/gameplay-5.png)
+
+![Gameplay screenshot 3](screenshots/gameplay-6.png)
 
 How to install
 1. Download the latest APK from the [Releases] section of this repository.
