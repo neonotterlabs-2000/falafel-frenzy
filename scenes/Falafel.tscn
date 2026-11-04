@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://boecpia651jcq"]
+
+[ext_resource type="Script" path="res://scripts/Falafel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b4kn3jhflsslb" path="res://assets/white_sauce_splash.png" id="2_mrsij"]
+[ext_resource type="Texture2D" uid="uid://dgoutgjgr5afk" path="res://assets/falafel_whole.png" id="2_whole"]
+[ext_resource type="Texture2D" uid="uid://dh3mlfpwmt7rh" path="res://assets/falafel_left.png" id="3_left"]
+[ext_resource type="Texture2D" uid="uid://di1q40k5baoq1" path="res://assets/falafel_right.png" id="4_right"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 64.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 400, 0)
+scale_min = 5.0
+scale_max = 10.0
+color = Color(0.1, 0.8, 0.1, 1)
+
+[node name="Falafel" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_script")
+
+[node name="SauceSplash" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_mrsij")
+
+[node name="WholeSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_whole")
+
+[node name="LeftHalf" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_left")
+flip_h = true
+
+[node name="RightHalf" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_right")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_1")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

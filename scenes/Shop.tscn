@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://q46j7u0vdmmd"]
+
+[ext_resource type="Script" path="res://scenes/Shop.gd" id="1_rx8an"]
+[ext_resource type="Texture2D" uid="uid://c4ki8sh2xccvb" path="res://assets/falafel_shops.png" id="2_d1tlu"]
+[ext_resource type="AudioStream" uid="uid://hqi743ofnsdo" path="res://assets/fireplace_vibe.mp3" id="3_2o4k3"]
+[ext_resource type="Texture2D" uid="uid://iwhax0jxn551" path="res://assets/return-removebg-preview.png" id="3_gsy8r"]
+[ext_resource type="Texture2D" uid="uid://batydjgag37wu" path="res://assets/Tomato right half.png" id="4_4pccn"]
+[ext_resource type="Texture2D" uid="uid://basxqpuqjlkpw" path="res://assets/Pickle right half.png" id="5_x7kb2"]
+[ext_resource type="Texture2D" uid="uid://b3jgawpaasion" path="res://assets/Halloumi left half.png" id="6_vgsrp"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rx8an")
+metadata/_edit_vertical_guides_ = [1151.0]
+metadata/_edit_horizontal_guides_ = [648.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = -131.0
+offset_top = -4.0
+offset_right = 1245.0
+offset_bottom = 700.0
+texture = ExtResource("2_d1tlu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 76.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "Total coins: 0"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 25.0
+offset_right = 1161.0
+offset_bottom = 97.0
+texture_normal = ExtResource("3_gsy8r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HalloumiButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 238.0
+offset_right = 370.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 28
+text = "Halloumi - $20"
+
+[node name="PickleButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 241.0
+offset_right = 659.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 28
+text = "Pickle - $40"
+
+[node name="TomatoButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 240.0
+offset_right = 949.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 28
+text = "Tomato - $80"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2o4k3")
+volume_db = 10.0
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 60.0
+offset_right = 786.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 88
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TomatoRightHalf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(906, 291)
+texture = ExtResource("4_4pccn")
+
+[node name="PickleRightHalf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(607, 300)
+texture = ExtResource("5_x7kb2")
+
+[node name="HalloumiLeftHalf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(324, 314)
+texture = ExtResource("6_vgsrp")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HalloumiButton" to="." method="_on_halloumi_button_pressed"]
+[connection signal="pressed" from="PickleButton" to="." method="_on_pickle_button_pressed"]
+[connection signal="pressed" from="TomatoButton" to="." method="_on_tomato_button_pressed"]

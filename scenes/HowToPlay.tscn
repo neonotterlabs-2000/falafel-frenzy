@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbsp0eypw5um1"]
+
+[ext_resource type="Script" path="res://scenes/HowToPlay.gd" id="1_dbtwr"]
+[ext_resource type="AudioStream" uid="uid://hqi743ofnsdo" path="res://assets/fireplace_vibe.mp3" id="2_7ras1"]
+[ext_resource type="Texture2D" uid="uid://dmhhukij68p" path="res://assets/how_to_play_falafel.png" id="2_g0cgf"]
+[ext_resource type="Texture2D" uid="uid://iwhax0jxn551" path="res://assets/return-removebg-preview.png" id="3_mvnxs"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbtwr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g0cgf")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 388.0
+offset_top = 86.0
+offset_right = 800.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 26
+text = "Slice ingredients to score points! 
+Falafel = 1 point
+Halloumi = 3 points
+Pickle = 6 points
+Tomato = 10 points
+Avoid slicing the Tahini Bottles, 
+they cost you a life! 
+Letting food drop costs a life too!"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 979.0
+offset_top = 27.0
+offset_right = 1147.0
+offset_bottom = 99.0
+texture_normal = ExtResource("3_mvnxs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7ras1")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

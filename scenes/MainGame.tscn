@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://eppyks58215r"]
+
+[ext_resource type="Script" path="res://scripts/MainGame.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://boecpia651jcq" path="res://scenes/Falafel.tscn" id="2_scene"]
+[ext_resource type="Texture2D" uid="uid://7my2j8pbithi" path="res://assets/white_sauce_bottle.png" id="3_bfrp7"]
+[ext_resource type="Texture2D" uid="uid://bucicrxstx6s8" path="res://assets/falafel_playing_background.png" id="3_vr0rm"]
+[ext_resource type="Texture2D" uid="uid://dgoutgjgr5afk" path="res://assets/falafel_whole.png" id="4_4u1b7"]
+[ext_resource type="Texture2D" uid="uid://bt3ymf54wk3by" path="res://scenes/start_button.png" id="4_i2bug"]
+[ext_resource type="Texture2D" uid="uid://dh3mlfpwmt7rh" path="res://assets/falafel_left.png" id="5_q6j6d"]
+[ext_resource type="Texture2D" uid="uid://di1q40k5baoq1" path="res://assets/falafel_right.png" id="6_kwk51"]
+[ext_resource type="Texture2D" uid="uid://lb24w8toxu11" path="res://assets/Halloumi.png" id="7_sluyp"]
+[ext_resource type="Texture2D" uid="uid://b3jgawpaasion" path="res://assets/Halloumi left half.png" id="8_fu5ou"]
+[ext_resource type="Texture2D" uid="uid://bqey3gy1fphxj" path="res://assets/Halloumi right half.png" id="9_3okib"]
+[ext_resource type="Texture2D" uid="uid://bsbcip2tqjbe3" path="res://assets/Pickle.png" id="10_mktxn"]
+[ext_resource type="Texture2D" uid="uid://drd0g60nom6yn" path="res://assets/Pickle left half.png" id="11_imep1"]
+[ext_resource type="Texture2D" uid="uid://basxqpuqjlkpw" path="res://assets/Pickle right half.png" id="12_pumcp"]
+[ext_resource type="Texture2D" uid="uid://brem4awj5cysx" path="res://assets/Tomato.png" id="13_yk15g"]
+[ext_resource type="Texture2D" uid="uid://bamxm7to06im5" path="res://assets/Tomato left half.png" id="14_f2c1s"]
+[ext_resource type="Texture2D" uid="uid://batydjgag37wu" path="res://assets/Tomato right half.png" id="15_vckr0"]
+[ext_resource type="Texture2D" uid="uid://bfih28bojjwlk" path="res://assets/pause_button.png" id="17_wine5"]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_script")
+falafel_scene = ExtResource("2_scene")
+bottle_texture = ExtResource("3_bfrp7")
+play_icon = ExtResource("4_i2bug")
+falafel_whole = ExtResource("4_4u1b7")
+falafel_left = ExtResource("5_q6j6d")
+falafel_right = ExtResource("6_kwk51")
+halloumi_whole = ExtResource("7_sluyp")
+halloumi_left = ExtResource("8_fu5ou")
+halloumi_right = ExtResource("9_3okib")
+pickle_whole = ExtResource("10_mktxn")
+pickle_left = ExtResource("11_imep1")
+pickle_right = ExtResource("12_pumcp")
+tomato_whole = ExtResource("13_yk15g")
+tomato_left = ExtResource("14_f2c1s")
+tomato_right = ExtResource("15_vckr0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vr0rm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.1, 0.2, 0.1, 1)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 20.0
+offset_right = -45.0
+offset_bottom = 65.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "Lives: 3"
+horizontal_alignment = 2
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/UI"]
+process_mode = 3
+layout_mode = 0
+offset_left = 956.0
+offset_top = 72.0
+offset_right = 1156.0
+offset_bottom = 172.0
+texture_normal = ExtResource("17_wine5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseButton" to="." method="_on_pause_button_pressed"]

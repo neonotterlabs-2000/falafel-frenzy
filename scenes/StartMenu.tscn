@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://b80bma24c2j1y"]
+
+[ext_resource type="Script" path="res://scripts/Menus.gd" id="1_84rub"]
+[ext_resource type="Texture2D" uid="uid://c40mvjcebpkok" path="res://assets/falafel_start_page.png" id="2_rbuf8"]
+[ext_resource type="AudioStream" uid="uid://hqi743ofnsdo" path="res://assets/fireplace_vibe.mp3" id="3_44esu"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84rub")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_rbuf8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TotalCoinsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
+text = "Total Coins: 0"
+
+[node name="StartButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+offset_left = 382.0
+offset_top = 323.0
+offset_right = 765.0
+offset_bottom = 440.0
+theme_override_font_sizes/font_size = 32
+text = "Start button"
+
+[node name="ShopButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 376.0
+offset_top = 445.0
+offset_right = 564.0
+offset_bottom = 521.0
+text = "Shop button"
+
+[node name="RulesButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 583.0
+offset_top = 445.0
+offset_right = 796.0
+offset_bottom = 526.0
+text = "Rule button"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_44esu")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="RulesButton" to="." method="_on_rules_button_pressed"]
