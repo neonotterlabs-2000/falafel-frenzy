@@ -1,5 +1,5 @@
 # falafel-frenzy
-This is the beta version of our mobile game "Falafel Frenzy". You slice flying falafel and dodge the white sauce bottle. 
+This is the beta version of our mobile game "Falafel Frenzy". You slice flying falafel balls and dodge the white sauce bottles. 
 
 How to install
 1. Download the latest APK from the [Releases] section of this repository.
